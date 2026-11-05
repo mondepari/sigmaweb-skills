@@ -34,7 +34,6 @@
 | `set_business_profile { about }` | описание бизнеса (опора встроенного ИИ) |
 | `import_media { items: [{ url, alt?, name?, tags? }], folder? }` | фото по ссылкам → медиатека |
 | `generate_photos { block_id, photos? }` | ИИ-фото в места блока (платно); без `photos` — список мест и цена |
-
 | `update_theme { design_system?, primary?, accent?, font_heading?, font_body? }` | оформление всего сайта |
 
 ## Ключ аккаунта (тариф agency)
