@@ -16,6 +16,8 @@
 | `get_site_info` | контакты, шапка, подвал |
 | `list_media { query?, kind?, limit? }` | медиатека владельца |
 | `search_help { query }` | справка SigmaWeb |
+| `render_preview { page, device?, from? }` | скриншот черновика (ПК / телефон), фрагментами-картинками |
+| `list_design_systems { mood?, niche? }` | готовые системы дизайна (палитра, шрифты, стиль) |
 
 ## Правка черновика (право write, активная подписка)
 
@@ -33,10 +35,22 @@
 | `import_media { items: [{ url, alt?, name?, tags? }], folder? }` | фото по ссылкам → медиатека |
 | `generate_photos { block_id, photos? }` | ИИ-фото в места блока (платно); без `photos` — список мест и цена |
 
+| `update_theme { design_system?, primary?, accent?, font_heading?, font_body? }` | оформление всего сайта |
+
+## Ключ аккаунта (тариф agency)
+
+| Инструмент | Что делает |
+|---|---|
+| `list_sites { query? }` | сайты аккаунта (id → `site_id`) |
+| `list_templates { query?, type? }` | шаблоны по нише + пустые старты (`blank`) |
+| `create_site { name, template, subdomain?, design_system? }` | новый черновик из шаблона → `site_id` |
+
+Остальные инструменты с ключом аккаунта требуют `site_id`.
+
 ## HTTP-загрузка файлов (право write)
 
 `POST https://sigmaweb-studio.ru/api/agent/upload` — multipart: `file` (до 20), `alt`, `folder`, `tags`
-(через запятую). Ответ: `{ results: [{ ok, url, id, width, height } | { ok: false, error }] }`.
+(через запятую), `site_id` (для ключа аккаунта). Ответ: `{ results: [{ ok, url, id, width, height } | { ok: false, error }] }`.
 
 ## Лимиты
 
