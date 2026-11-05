@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "sigmaweb": {
+      "type": "http",
+      "url": "https://sigmaweb-studio.ru/api/mcp",
+      "headers": { "Authorization": "Bearer ${SIGMAWEB_KEY}" }
+    }
+  }
+}

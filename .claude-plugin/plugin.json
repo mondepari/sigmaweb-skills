@@ -1,0 +1,8 @@
+{
+  "name": "sigmaweb",
+  "description": "Сборка и переделка сайтов в конструкторе SigmaWeb из Claude Code: MCP-сервер sigmaweb + skill с правилами работы (библиотека блоков, медиа, перенос сайта клиента).",
+  "version": "1.0.0",
+  "homepage": "https://sigmweb.ru",
+  "repository": "https://github.com/mondepari/sigmaweb-skills",
+  "keywords": ["sigmaweb", "website-builder", "mcp", "конструктор сайтов"]
+}

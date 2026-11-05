@@ -1,0 +1,16 @@
+{
+  "name": "sigmaweb",
+  "owner": {
+    "name": "SigmaWeb"
+  },
+  "plugins": [
+    {
+      "name": "sigmaweb",
+      "source": "./",
+      "description": "MCP-сервер SigmaWeb и skill для работы с сайтами конструктора"
+    }
+  ],
+  "metadata": {
+    "description": "Плагины SigmaWeb для ИИ-агентов: MCP-сервер конструктора сайтов и skill работы с ним"
+  }
+}
