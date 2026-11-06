@@ -16,6 +16,7 @@
 | `get_site_info` | контакты, шапка, подвал |
 | `list_media { query?, kind?, limit? }` | медиатека владельца |
 | `search_help { query }` | справка SigmaWeb |
+| `list_blog_posts { query?, limit? }` | статьи блога и рубрики |
 | `render_preview { page, device?, from? }` | скриншот черновика (ПК / телефон), фрагментами-картинками |
 | `list_design_systems { mood?, niche? }` | готовые системы дизайна (палитра, шрифты, стиль) |
 
@@ -35,6 +36,7 @@
 | `import_media { items: [{ url, alt?, name?, tags? }], folder? }` | фото по ссылкам → медиатека |
 | `generate_photos { block_id, photos? }` | ИИ-фото в места блока (платно); без `photos` — список мест и цена |
 | `update_theme { design_system?, primary?, accent?, font_heading?, font_body? }` | оформление всего сайта |
+| `save_blog_post { post_id?, title?, markdown?, excerpt?, cover_image_url?, category?, tags?, published_at?, slug?, seo_title?, seo_description? }` | статья блога (новая — черновиком) |
 
 ## Ключ аккаунта (тариф agency)
 
@@ -43,6 +45,8 @@
 | `list_sites { query? }` | сайты аккаунта (id → `site_id`) |
 | `list_templates { query?, type? }` | шаблоны по нише + пустые старты (`blank`) |
 | `create_site { name, template, subdomain?, design_system? }` | новый черновик из шаблона → `site_id` |
+| `publish_site { site_id, publish? }` | опубликовать сайт (новая версия) / `publish: false` — снять |
+| `publish_blog_post { site_id, post_id, publish? }` | опубликовать статью / снять в черновик |
 
 Остальные инструменты с ключом аккаунта требуют `site_id`.
 
