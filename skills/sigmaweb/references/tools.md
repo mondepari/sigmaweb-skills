@@ -7,7 +7,7 @@
 
 | Инструмент | Что делает |
 |---|---|
-| `get_site` | обзор: название, адрес, тип/режим, профиль бизнеса, страницы (id, slug, число блоков), лимиты |
+| `get_site` | обзор: название, адрес, тип/режим, профиль бизнеса, страницы (id, slug, число блоков), лимиты, `commerce` (режим, число позиций, ссылка на кабинет «Коммерция», что делать дальше) |
 | `get_page { page, include_data? }` | блоки страницы по порядку с данными; `page` — id или slug (`home`) |
 | `list_block_types { query? }` | каталог блоков библиотеки, доступных этому сайту |
 | `get_block_schema { type }` | JSON Schema данных блока + пример |
@@ -15,6 +15,8 @@
 | `get_design_rules` | правила «Своего блока» и тема сайта |
 | `get_site_info` | контакты, шапка, подвал |
 | `list_media { query?, kind?, limit? }` | медиатека владельца |
+| `search_stock_photos { query?, category?, categories?, kind?, limit? }` | бесплатные стоки платформы (фото/видео); url — сразу в блок |
+| `list_store_items { query?, limit? }` | позиции коммерции сайта (товары, курсы, события…): статус, цена от; создаются в кабинете «Коммерция» |
 | `search_help { query }` | справка SigmaWeb |
 | `list_blog_posts { query?, limit? }` | статьи блога и рубрики |
 | `render_preview { page, device?, from? }` | скриншот черновика (ПК / телефон), фрагментами-картинками |
@@ -43,7 +45,7 @@
 | Инструмент | Что делает |
 |---|---|
 | `list_sites { query? }` | сайты аккаунта (id → `site_id`) |
-| `list_templates { query?, type? }` | шаблоны по нише + пустые старты (`blank`) |
+| `list_templates { query?, type? }` | шаблоны по нише + пустые старты (`blank`); `store: true` — шаблон с режимом коммерции. Ищите 2–3 формулировками, берите ближайший |
 | `create_site { name, template, subdomain?, design_system? }` | новый черновик из шаблона → `site_id` |
 | `publish_site { site_id, publish? }` | опубликовать сайт (новая версия) / `publish: false` — снять |
 | `publish_blog_post { site_id, post_id, publish? }` | опубликовать статью / снять в черновик |
