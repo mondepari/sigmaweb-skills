@@ -40,17 +40,26 @@
 | `update_theme { design_system?, primary?, accent?, font_heading?, font_body? }` | оформление всего сайта |
 | `save_blog_post { post_id?, title?, markdown?, excerpt?, cover_image_url?, category?, tags?, published_at?, slug?, seo_title?, seo_description? }` | статья блога (новая — черновиком) |
 
-## Ключ аккаунта (тариф agency)
+## Коммерция (право «Добавлять товары, курсы и события»)
+
+| Инструмент | Модель сайта | Что делает |
+|---|---|---|
+| `save_product { product_id?, title, description?, price?, old_price?, images?, category?, badge?, variants?, stock?, delivery_text?, active? }` | магазин, цифровые товары | товар / цифровой товар |
+| `save_course { course_id?, title, description?, price?, old_price?, cover?, level?, starts_at?, modules?, active? }` | онлайн-школа | курс с программой (модули → уроки) |
+| `save_event { event_id?, title, starts_at, ends_at?, venue_name?, venue_address?, city?, images?, tiers?, active? }` | афиша | событие с тарифами билетов |
+
+Какой инструмент — в `get_site.commerce.tool`. Позиции — черновиком; `active` действует только у
+неопубликованного сайта. Удаления нет.
+
+## Ключ «весь аккаунт»
 
 | Инструмент | Что делает |
 |---|---|
 | `list_sites { query? }` | сайты аккаунта (id → `site_id`) |
-| `list_templates { query?, type? }` | шаблоны по нише + пустые старты (`blank`); `store: true` — шаблон с режимом коммерции. Ищите 2–3 формулировками, берите ближайший |
-| `create_site { name, template, subdomain?, design_system? }` | новый черновик из шаблона → `site_id` |
-| `publish_site { site_id, publish? }` | опубликовать сайт (новая версия) / `publish: false` — снять |
-| `publish_blog_post { site_id, post_id, publish? }` | опубликовать статью / снять в черновик |
+| `list_templates { query?, type?, mode? }` | шаблоны по нише; `mode` — модель продаж (`none`, `store`, `digital`, `school`, `afisha`, `appointments`, `fitness`, `booking`, `music`, `media`) |
+| `create_site { name, template, subdomain?, design_system? }` | новый черновик из шаблона → `site_id`, `preview` (право «Создавать сайты») |
 
-Остальные инструменты с ключом аккаунта требуют `site_id`.
+Остальные инструменты с этим ключом требуют `site_id`. Публикации у агента нет — публикует владелец в студии.
 
 ## HTTP-загрузка файлов (право write)
 
